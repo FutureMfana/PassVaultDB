@@ -1,10 +1,16 @@
 CREATE DATABASE PassVault;
 GO
 
+USE PassVault;
+GO
+
 CREATE SCHEMA UserInfo;
 GO
 
 CREATE SCHEMA SiteInfo;
+GO
+
+USE PassVault;
 GO
 
 CREATE TABLE UserInfo.Users(
@@ -21,6 +27,7 @@ CREATE TABLE SiteInfo.Sites(
 	Username NVARCHAR(100),
 	EmailAddress NVARCHAR(100),
 	Password NVARCHAR(100) NOT NULL,
+	Comments NVARCHAR(MAX) NULL,
 	UID INT,
 	CONSTRAINT FK_UID_Users_Sites FOREIGN KEY (UID) REFERENCES UserInfo.Users(UID)
 	ON DELETE NO ACTION
